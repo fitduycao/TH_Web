@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .warning {
+            clear: both;
+            color: red;
+        }
+        
+        .error {
+            color: red;
+        }
+        
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="name" type="text" placeholder="Input your name">
+    <span class="warning" id="displaywarning"></span>
+    <span class="success" id="displaysuccess"></span>
+    <br>
+    <button id="btnCheck">Check</button>
+    <script>
+        var inputname = document.getElementById('name');
+        var displayWarning = document.getElementById('displaywarning');
+        var displaySuccess = document.getElementById('displaysuccess');
+        var btnCheck = document.getElementById('btnCheck');
+
+        btnCheck.onclick = () => {
+
+            var pattern = /^\d+$/;
+            displayWarning.innerText = "";
+            displaySuccess.innerText = "";
+            if (inputname.value == '') {
+                displayWarning.innerText = 'input your data'
+            } else if (pattern.test(inputname.value)) {
+                displaySuccess.innerText = inputname.value
+            } else {
+                displayWarning.innerText = 'Please input number'
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+        }
+        .success{
+            color: green;
+        }
+
+    </style>
+
+</head>
+<body>
+    <input id= "sdt"type="text" placeholder="nhập số điện thoại">
+    <span class=error id="displayerror"></span>
+    <span class=success id="displaysuccess"></span>
+    <button id="btncheck" >Check </button>
+    <script>
+        var sdt =document.getElementById("sdt");
+        var displayError= document.getElementById("displayerror");
+        var displaySuccess= document.getElementById("displaysuccess");
+        
+        var btnCheck=document.getElementById("btncheck");
+
+            btnCheck.onclick = () => {
+
+            var pattern = /^0\d{9}$/;
+            displayError.innerText = "";
+            displaySuccess.innerText = "";
+            if (sdt.value == '') {
+                displayError.innerText = 'Hãy nhập số điện thoại'
+            } else if (pattern.test(sdt.value)) {
+                displaySuccess.innerText = 'Số điện thoại hợp lệ'
+            } else {
+                displayError.innerText = 'Số điện thoại không hợp lệ'
+            }
+        }
+    </script>
+</body>
+</html>

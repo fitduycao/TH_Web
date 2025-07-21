@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .warning {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="name" type="text" placeholder="Input your name">
+    <span class="warning" id="displaywarning"></span>
+    <br>
+    <button id="btnCheck">Check</button>
+    <script>
+        var inputname = document.getElementById('name');
+        var displayWarning = document.getElementById('displaywarning');
+        var btnCheck = document.getElementById('btnCheck');
+
+        btnCheck.onclick = () => {
+            var pattern = /\d/;
+            if (inputname.value == '') {
+                displayWarning.innerText = 'input your data'
+            } else if (pattern.test(inputname.value)) {
+                displayWarning.innerText = 'input your number'
+            } else {
+                displayWarning.innerText = 'input your text'
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

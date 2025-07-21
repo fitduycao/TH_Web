@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tự động kiểm tra ngày</title>
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <input id="dateInput" type="text" placeholder="Nhập ngày (DD-MM-YYYY)">
+    <span class="error" id="dateError"></span>
+    <span class="success" id="dateSuccess"></span>
+
+    <script>
+        const dateInput = document.getElementById("dateInput");
+        const dateError = document.getElementById("dateError");
+        const dateSuccess = document.getElementById("dateSuccess");
+
+        dateInput.addEventListener("input", () => {
+            dateError.innerText = "";
+            dateSuccess.innerText = "";
+
+            const value = dateInput.value.trim();
+            const pattern = /^(\d{2})-(\d{2})-(\d{4})$/;
+
+            if (value === "") {
+                dateError.innerText = "Hãy nhập ngày tháng";
+                return;
+            }
+
+            const match = value.match(pattern);
+            if (!match) {
+                dateError.innerText = "Định dạng sai. Đúng là DD-MM-YYYY";
+                return;
+            }
+
+            const day = parseInt(match[1]);
+            const month = parseInt(match[2]) - 1;
+            const year = parseInt(match[3]);
+
+            const dateObj = new Date(year, month, day);
+
+            if (
+                dateObj.getDate() === day &&
+                dateObj.getMonth() === month &&
+                dateObj.getFullYear() === year
+            ) {
+                dateSuccess.innerText = "Ngày hợp lệ";
+            } else {
+                dateError.innerText = "Ngày không hợp lệ";
+            }
+        });
+    </script>
+</body>
+</html>
