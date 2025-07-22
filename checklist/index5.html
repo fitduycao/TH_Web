@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="oneWord" placeholder="Nhập...">
+    <button onclick="checkType()">Check</button>
+    <p id="typeResult"></p>
+
+<script>
+  function checkType() {
+    var value = document.getElementById("oneWord").value;
+    var isNumber = /^[0-9]+$/.test(value);
+    if (isNumber) {
+      document.getElementById("typeResult").innerText = "Đây là số";
+    } else {
+      document.getElementById("typeResult").innerText = "Đây là chữ";
+    }
+  }
+</script>
+</body>
+</html>
