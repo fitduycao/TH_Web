@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="urlinput">
+    <button id="btncheck">Check</button>
+    <p id="result"> </p>
+    <script>
+        const urlInput = document.getElementById("urlinput");
+        const btnCheck = document.getElementById("btncheck");
+        const result = document.getElementById("result");
+
+        btnCheck.onclick = () => {
+            const link = urlInput.value.trim();
+            const linkregex = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/;
+
+            if (linkregex.test(link)) {
+                result.textContent = "Hợp lệ";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Không hợp lệ";
+                result.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

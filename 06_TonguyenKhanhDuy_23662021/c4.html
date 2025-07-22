@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputdata" placeholder="Nhập tên của bạn">
+    <button id="btnCheck">Check</button>
+    <p id="result">
+    </p>
+    <script>
+        var inputdata = document.getElementById("inputdata");
+        var btnCheck = document.getElementById("btnCheck");
+        var result = document.getElementById("result");
+        btnCheck.onclick = () => {
+            const ten = inputdata.value;
+
+            const regex = /^[a-zA-Z\s]+$/;
+
+            if (regex.test(ten)) {
+                result.textContent = "Hợp lệ";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Không hợp lệ";
+                result.style.color = "red";
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="IP" placeholder="Nhập IP">
+    <button id="btnCheck">Check</button>
+    <p id="result"></p>
+
+    <script>
+        const inputIP = document.getElementById("IP");
+        const btnCheck = document.getElementById("btnCheck");
+        const result = document.getElementById("result");
+
+        btnCheck.onclick = () => {
+            const ip = inputIP.value.trim();
+
+            const regex = /^\d+\.+\d+\.+\d+\.+\d+$/
+
+            if (regex.test(ip)) {
+                result.textContent = "Hợp lệ";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Không hợp lệ";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>

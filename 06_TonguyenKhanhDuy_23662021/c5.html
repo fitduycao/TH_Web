@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngày</title>
+</head>
+
+<body>
+    <h3>Chọn ngày nên không thể sai </h3>
+    <input type="date" id="dateInput">
+    <button id="btnGetDate">Check</button>
+    <p id="demo"></p>
+
+    <script>
+        const dateInput = document.getElementById("dateInput");
+        const btnGetDate = document.getElementById("btnGetDate");
+        const demo = document.getElementById("demo");
+
+        let selectedDate = null;
+
+        dateInput.onchange = () => {
+            selectedDate = new Date(dateInput.value);
+        }
+
+        btnGetDate.onclick = () => {
+            demo.textContent = "Ngày bạn đã chọn : " + selectedDate.toLocaleDateString();
+            demo.style.color = "green";
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="email" id="emailInput" placeholder="your-email">
+    <button id="btncheck">Check</button>
+    <p id="result"></p>
+    <script>
+        const emailinput = document.getElementById("emailInput");
+        const btnCheck = document.getElementById("btncheck");
+        const result = document.getElementById("result");
+
+        btnCheck.onclick = () => {
+            const emaill = emailinput.value.trim();
+            const emailregex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+
+            if (emailregex.test(emaill)) {
+                result.textContent = "Hợp lệ";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Không hợp lệ";
+                result.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
